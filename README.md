@@ -8,9 +8,6 @@ Aplicação Referência: https://github.com/engsoft-ifal/rastreadordecarga
 Back-end: 
 - Node.js
 
-Banco de Dados: 
-- 
-
 Front-end:
 - HTML5
 - CSS
