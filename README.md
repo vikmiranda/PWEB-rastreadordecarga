@@ -14,7 +14,7 @@ Front-end:
 - Javascript
 
 Banco de Dados: 
-- SQL
+- ---
 
 
 ## Time:
