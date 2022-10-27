@@ -13,6 +13,8 @@ Front-end:
 - CSS
 - Javascript
 
+Banco de Dados: 
+- 
 
 ## Time:
 - EYDER TINOCO 	etfn1@aluno.ifal.edu.br
