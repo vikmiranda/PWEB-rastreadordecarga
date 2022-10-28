@@ -19,6 +19,7 @@ Banco de Dados:
 
 ## Time:
 - EYDER TINOCO 	etfn1@aluno.ifal.edu.br
+- HUDSON GOMES  hgf1@aluno.ifal.edu.br
 - ISAAC BARROS  ibds1@aluno.ifal.edu.br
 - JOÃO VICTOR   jvmv1@aluno.ifal.edu.br
 - LUCCA CARNAÚBA  @aluno.ifal.edu.br
