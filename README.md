@@ -6,7 +6,7 @@ Aplicação Referência: https://github.com/engsoft-ifal/rastreadordecarga
 
 ## Tecnologias:
 Back-end: 
-- Node.js
+- Node.js + Express
 
 Front-end:
 - HTML5
