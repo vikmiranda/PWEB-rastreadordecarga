@@ -22,4 +22,4 @@ Banco de Dados:
 - HUDSON GOMES  hgf1@aluno.ifal.edu.br
 - ISAAC BARROS  ibds1@aluno.ifal.edu.br
 - JOÃO VICTOR   jvmv1@aluno.ifal.edu.br
-- LUCCA CARNAÚBA  @aluno.ifal.edu.br
+- LUCCA CARNAÚBA  lcpr1@aluno.ifal.edu.br
