@@ -1,3 +1,5 @@
+const { cargaModel } = require('../models')
+
 async function codigoRastreamentoAleatorio() {
     let resultado = '';
     const tamanho = 5;
@@ -8,7 +10,7 @@ async function codigoRastreamentoAleatorio() {
         resultado += caracteristicas.charAt(Math.floor(Math.random() * tamanhoCaracteristicas));
     }
 
-    const novoCodigoRastreamento = await Code.findOne({ code: resultado });
+    const novoCodigoRastreamento = await cargaModel.findOne({cod_rastreamento: resultado});
     if (novoCodigoRastreamento) {
         return codigoRastreamentoAleatorio();
     }

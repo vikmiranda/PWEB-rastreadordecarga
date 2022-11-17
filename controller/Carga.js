@@ -33,6 +33,17 @@ class Carga {
         }
     }
 
+    async pegarCargarPeloCodRastreio(req, res) {
+        try {
+            const { cod_rastreio } = req.params;
+            const carga = await cargaService.pegarCargarPeloCodRastreio(cod_rastreio);
+            return res.status(200).send(carga);
+        }
+        catch (error) {
+            return res.status(500).send({error: error.message});
+        }
+    }
+
     async atualizarCarga(req, res) {
         try {
             const bodyRequest = req.body;

@@ -5,6 +5,10 @@ const CargaSchema = new Schema({
     cidade_origem: String,
     cidade_destino: String,
     data_limite: Date,
-})
+},
+{
+    timestamps: true,
+    _v: false
+});
 
 module.exports = model('Carga', CargaSchema);

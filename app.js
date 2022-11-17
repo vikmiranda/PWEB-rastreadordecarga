@@ -7,8 +7,6 @@ require('dotenv').config();
 const debug = require('debug')('expressProject:server');
 const http = require('http');
 const mongoose = require('mongoose');
-const DB_USER = process.env.DB_USER;
-const DB_PASSWORD = encodeURIComponent(process.env.DB_PASSWORD);
 
 const routes = require('./routes');
 const app = express();
@@ -26,7 +24,7 @@ app.set('port', port);
 const server = http.createServer(app);
 
 // Listen on provided port, on all network interfaces.
-mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.bf6kvlp.mongodb.net/?retryWrites=true&w=majority`)
+mongoose.connect(process.env.DB_URL)
     .then(() => {
         console.log("Conectamos ao MongoDB");
         server.listen(port, () => {

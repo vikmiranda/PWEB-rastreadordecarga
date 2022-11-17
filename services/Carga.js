@@ -1,17 +1,18 @@
 const { cargaModel } = require('../models');
+const cod_rastreio = require('../script/codigoRastreamentoAleatorio');
 
 class Carga {
     async criarCarga(bodyOfRequest) {
         try {
+            const new_cod_rastreio = await cod_rastreio();
             const {
-                cod_rastreamento,
                 cidade_origem,
                 cidade_destino,
                 data_limite
             } = bodyOfRequest;
 
             const novaCarga = new cargaModel({
-                cod_rastreamento,
+                cod_rastreamento: new_cod_rastreio,
                 cidade_origem,
                 cidade_destino,
                 data_limite
@@ -41,10 +42,31 @@ class Carga {
         try {
             const carga = await cargaModel.findById(id);
 
+            if(!carga) {
+                throw new Error("Id not found");
+            }
+
             return carga;
         }
         catch (error) {
             throw new Error("Error in pegarCargarPeloId: " + error.message);
+        }
+    }
+
+    async pegarCargarPeloCodRastreio(cod_rastreio) {
+        try {
+            const carga = await cargaModel.findOne({
+                cod_rastreamento: cod_rastreio
+            });
+
+            if(!carga) {
+                throw new Error("Tracking code not found");
+            }
+
+            return carga;
+        }
+        catch (error) {
+            throw new Error("Error in pegarCargarPeloCodRastreio: " + error.message);
         }
     }
 
