@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link type="text/css" rel="StyleSheet" href="style.css"/>
+    <link type="text/css" rel="StyleSheet" href="style.css" />
 </head>
+
 <body>
-    <div id="home">
+    <div id="bodyPag">
 
-        <div class="divMessagem">
-            <h1 class="textShadow">Cargo Tracker</h1>
-            <h2 class="textShadow">Applied domain-driven design blueprints for Jakarta EE</h2>
-            <h2><a href="">Public Tracking Interface</a></h2>
-            <h2><a href="admbook.html">Administration Interface</a></h2>
-            <h2><a href="">Mobile Event Logger</a></h2>
+        <div id="menu">
+            <hr />
+            <ul>
+                <!-- <li><a href="adm.html">Dashboard</a></li> -->
+                <li><a href="index.html">Cargo Track</a></li>
+                <li><a href="logincargo.html">Cargo Register</a></li>
+            </ul>
         </div>
+        <div id="home">
 
+            <div class="divMessagem">
+                <h1 class="textShadow">Cargo Tracker</h1>
+                <form>
+                    <h2 class="textShadow">Enter your cargo tracking code:</h2>
+                    <input type="text" id="idCargo" name="idCargo"><br>
+                    <br><input type="submit" value="Search">
+                </form>
+            </div>
+
+        </div>
     </div>
 </body>
+
 </html>

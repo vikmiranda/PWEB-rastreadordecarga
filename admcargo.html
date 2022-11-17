@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="StyleSheet" href="style.css" />
+</head>
+
+<body>
+    <div id="bodyPag">
+
+        <div id="menu">
+            <hr />
+            <ul>
+
+                <li><a href="index.html">Cargo Track</a></li>
+                <li><a href="admcargo.html">Cargo Register</a></li>
+                <li><a href="adm.html">Dashboard</a></li>
+
+            </ul>
+        </div>
+
+        <div id="content">
+            <h2>Cargo</h2>
+
+            <div class="info">
+                <div class="info__input">
+                    <label>1. Choose the origin of the new cargo</label>
+                    <select name="cidades" id="listasCidadesOrigem">
+                        <option value="Maceió">Maceió - AL</option>
+                        <option value="Recife">Recife - PE</option>
+                        <option value="Suape">Suape - PE</option>
+                        <option value="Natal">Natal - RN</option>
+                        <option value="Manaus">Manaus - AM</option>
+                        <option value="Santos">Santos - SP</option>
+                        <option value="Navegantes">Navegantes - SC</option>
+                        <option value="Itajaí">Itajaí - SC</option>
+                        <option value="Rio de Janeiro">Rio de Janeiro - RJ</option>
+                    </select>
+                </div>
+
+                <div class="info__input">
+                    <label>2. Set the destination for this new cargo</label>
+                    <select name="cidades" id="listasCidadesDestino">
+                        <option value="Maceió">Maceió - AL</option>
+                        <option value="Recife">Recife - PE</option>
+                        <option value="Suape">Suape - PE</option>
+                        <option value="Natal">Natal - RN</option>
+                        <option value="Manaus">Manaus - AM</option>
+                        <option value="Santos">Santos - SP</option>
+                        <option value="Navegantes">Navegantes - SC</option>
+                        <option value="Itajaí">Itajaí - SC</option>
+                        <option value="Rio de Janeiro">Rio de Janeiro - RJ</option>
+                    </select>
+                </div>
+
+                <div class="info__input">
+                    <label>3. Set expected arrival date:</label>
+                    <input id="date" type="date">
+                </div>
+
+                <div class="actionDiv">
+                    <button>Save Cargo</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>
