@@ -1,6 +1,8 @@
-require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+
+require('dotenv').config();
+
 
 const debug = require('debug')('expressProject:server');
 const http = require('http');
@@ -8,18 +10,17 @@ const mongoose = require('mongoose');
 const DB_USER = process.env.DB_USER;
 const DB_PASSWORD = encodeURIComponent(process.env.DB_PASSWORD);
 
+const routes = require('./routes');
 const app = express();
 
-app.use(cors());
 app.use(express.json());
-
-// routes
-const cargaRouter = require('./routes/carga');
-app.use('/carga', cargaRouter);
+app.use(cors());
+app.use('/api', routes);
 
 // Get port from environment and store in Express.
 const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
+
 
 // Create HTTP server
 const server = http.createServer(app);
@@ -36,7 +37,6 @@ mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.bf6kvlp.mongo
 
 server.on('error', onError);
 server.on('listening', onListening);
-
 
 function normalizePort(val) {
     var port = parseInt(val, 10);
@@ -85,3 +85,4 @@ function onListening() {
         : 'port ' + addr.port;
     debug('Listening on ' + bind);
 }
+
