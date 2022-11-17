@@ -15,7 +15,9 @@ class Carga {
                 cod_rastreamento: new_cod_rastreio,
                 cidade_origem,
                 cidade_destino,
-                data_limite
+                data_limite,
+                localizacao: cidade_origem, //inicia na cidade origem
+                status: 'registrado'
             });
 
             const carga = await novaCarga.save();
@@ -77,14 +79,18 @@ class Carga {
                 cod_rastreamento,
                 cidade_origem,
                 cidade_destino,
-                data_limite
+                data_limite,
+                localizacao,
+                status
             } = bodyOfRequest;
 
             const carga = await cargaModel.findByIdAndUpdate(id, {
                     cod_rastreamento,
                     cidade_origem,
                     cidade_destino,
-                    data_limite
+                    data_limite,
+                    localizacao,
+                    status
                 },
                 {
                     new: true
