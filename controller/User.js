@@ -22,11 +22,11 @@ class User {
         }
     }
 
-    async pegarUsuarioPeloId(req, res) {
+    async login(req, res) {
         try {
-            const { id } = req.params;
-            const usuario = await userService.pegarUsuarioPeloId(id);
-            return res.status(200).send(usuario);
+            console.log(req.body)
+            const usuario = await userService.login(req.body);
+            return res.status(200).json(usuario);
         }
         catch (error) {
             return res.status(500).send({error: error.message});
@@ -46,6 +46,7 @@ class User {
         }
     }
 
+    //corrigir
     async deletarCarga(req, res) {
         try {
             const { id } = req.params;
