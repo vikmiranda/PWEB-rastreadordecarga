@@ -1,3 +1,4 @@
 module.exports = {
-    cargaService: require('./Carga')
+    cargaService: require('./Carga'),
+    userService: require('./User')
 }

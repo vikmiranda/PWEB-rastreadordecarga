@@ -1,3 +1,4 @@
 module.exports = {
-    cargaControler: require('./Carga')
+    cargaControler: require('./Carga'),
+    userControler: require('./User')
 }
