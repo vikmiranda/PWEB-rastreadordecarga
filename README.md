@@ -1,5 +1,7 @@
 # Rastreador de Carga
 
+sass --watch style.scss:style.css --style compressed
+
 A aplicação é um sistema de fim-a-fim para manter o controle da cargas marítimas. Para mais detalhes sobre o projeto, por favor, visite: https://eclipse-ee4j.github.io/cargotracker/.
 
 Aplicação Referência: https://github.com/engsoft-ifal/rastreadordecarga
