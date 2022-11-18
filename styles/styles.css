@@ -1,0 +1,139 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#home {
+    text-align: center;
+    color: #f8f8f8;
+    background: #000 url(../assets/cargoTug.jpg) no-repeat 0px 0px;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#home .divMessagem {
+    background: #00000080;
+    padding: 20px;
+    border-radius: 30px;
+}
+#home .divMessagem h1 {
+      margin: 0;
+      font-size: 5em;
+}
+#home .divMessagem  a {
+      color: orange;
+      text-decoration: none;
+}
+#home .divMessagem .textShadow {
+      text-shadow: 2px 2px 3px rgb(0 0 0 / 60%);
+}
+
+#menu {
+    background: #262626 url(../assets/logo.png) no-repeat 40% 5px;
+    min-height: 100vh;
+    width: 18%;
+    background-size: 90%;
+}
+#menu hr {
+    margin: 90% 5% 0;
+    border-bottom: 2px solid orange;
+}
+#menu ul {
+    position: static;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    list-style: none;
+}
+#menu ul li {
+    padding: 20px 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    border-bottom: 1px solid orange;
+    width: 90%;
+    text-align: center;
+}
+#menu ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+#content {
+    min-height: 100vh;
+    width: 82%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#content h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 800;
+    color: orange;
+    margin: 0;
+    padding: 10px 0;
+    background: #262626;
+}
+
+#content .info {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    min-height: 30vh;
+}
+#content .info__input {
+    display: flex;
+    flex-direction: column;
+}
+
+#content .dashboard h2 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+#content .dashboard thead {
+    background: orange;
+}
+#content .dashboard span {
+    color: white;
+    font-size: 1rem;
+}
+
+#content .book label {
+    font-size: 1em;
+}
+
+
+#content .book .actionDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#content .book .actionDiv button {
+    background: orange;
+    border: 2px solid #dda33c;
+    color: #fff;
+    margin: 0 5px;
+    padding: 10px 15px;
+    border-radius: 50px;
+    transition: 0.5s;
+}
+#content .book .actionDiv button:hover {
+    background: #dda33c;
+}

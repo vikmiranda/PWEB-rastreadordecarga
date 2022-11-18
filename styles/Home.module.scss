@@ -1,20 +1,20 @@
-html {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+//html {
+//  margin: 0;
+//  padding: 0;
+//}
+//
+//body {
+//  margin: 0;
+//  padding: 0;
+//  display: flex;
+//  align-items: center;
+//  justify-content: center;
+//}
 
 #home {
   text-align: center;
   color: #f8f8f8;
-  background: #000 url(cargoTug.jpg) no-repeat 0px 0px;
+  background: #000 url(../assets/cargoTug.jpg) no-repeat 0px 0px;
   background-size: cover;
   width: 100vw;
   height: 100vh;
@@ -39,9 +39,6 @@ body {
 
 
   }
-  & .logo {
-
-  }
 }
 
 
@@ -51,7 +48,7 @@ body {
   justify-content: center;
   width: 100%;
   #menu {
-    background: #262626 url(logo.png) no-repeat 40% 5px;
+    background: #262626 url(../assets/logo.png) no-repeat 40% 5px;
     min-height: 100vh;
     width: 18%;
     background-size: 90%;
