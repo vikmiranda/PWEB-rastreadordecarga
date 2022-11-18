@@ -14,10 +14,16 @@ export default function Home() {
 
       <div id="home">
           <div id="menu">
-
+              <hr />
+              <ul>
+                  <li><a href="/">Cargo Track</a></li>
+                  <li><a href="/">Cargo Register</a></li>
+                  <li><a href="/">Dashboard</a></li>
+              </ul>
           </div>
           <div id="content">
               <div className="divMessagem">
+                  <h1>Rastreio de Carga</h1>
                   <form onSubmit={(e) => {
                       e.preventDefault()
                       const cod_rastreio = e.target[0].value

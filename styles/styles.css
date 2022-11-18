@@ -21,22 +21,53 @@ body {
     align-items: center;
     justify-content: center;
 }
-#home .divMessagem {
+
+
+.divMessagem {
     background: #00000080;
     padding: 20px;
     border-radius: 30px;
 }
-#home .divMessagem h1 {
+.divMessagem h1 {
       margin: 0;
       font-size: 5em;
 }
-#home .divMessagem  a {
-      color: orange;
-      text-decoration: none;
+.divMessagem form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
-#home .divMessagem .textShadow {
+.divMessagem form label {
+    color: orange;
+    text-decoration: none;
+    font-size: 22px;
+    margin: 5px 0;
+}
+.divMessagem form input {
+    width: 150px;
+    padding: 5px;
+    margin: 5px 0;
+}
+.divMessagem form button {
+    width: 150px;
+    height: 30px;
+    margin: 5px 0;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 16px;
+    background: orange;
+    color: white;
+    font-weight: 600;
+}
+.divMessagem form button:hover {
+    background: #dda33c;
+}
+.divMessagem .textShadow {
       text-shadow: 2px 2px 3px rgb(0 0 0 / 60%);
 }
+
+
 
 #menu {
     background: #262626 url(../assets/logo.png) no-repeat 40% 5px;
