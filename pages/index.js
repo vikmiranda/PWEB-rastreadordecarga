@@ -13,28 +13,24 @@ export default function Home() {
       </Head>
 
       <div id="home">
-          <div id="menu">
-              <hr />
-              <ul>
-                  <li><a href="/">Cargo Track</a></li>
-                  <li><a href="/">Cargo Register</a></li>
-                  <li><a href="/">Dashboard</a></li>
-              </ul>
+          <div>
+              <h1>Rastreio de Carga</h1>
+              <p>Rastrei sua carga com código de rastreio</p>
           </div>
-          <div id="content">
-              <div className="divMessagem">
-                  <h1>Rastreio de Carga</h1>
-                  <form onSubmit={(e) => {
-                      e.preventDefault()
-                      const cod_rastreio = e.target[0].value
-                      router.push(`/carga/${cod_rastreio}`)
-                  }}>
-                      <label htmlFor="cod_rastreio">Código de rastreio</label>
-                      <input type="text" placeholder="Código de rastreio" />
-                      <button type="submit">Rastrear</button>
-                  </form>
+
+          <form className="divMessagem"
+                onSubmit={(e) => {
+                        e.preventDefault()
+                        const cod_rastreio = e.target[0].value
+                        router.push(`/carga/${cod_rastreio}`)
+                    }}>
+              <div>
+                  <label htmlFor="cod_rastreio">Código de rastreio</label>
+                  <input type="text" placeholder="Código de rastreio" />
+                  <hr/>
+                  <button type="submit">Rastrear</button>
               </div>
-          </div>
+          </form>
       </div>
     </div>
   )

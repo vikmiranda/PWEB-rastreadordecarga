@@ -10,10 +10,14 @@ body {
   justify-content: center;
 }
 
+.pagina {
+
+}
+
 #home {
     text-align: center;
     color: #f8f8f8;
-    background: #000 url(../assets/cargoTug.jpg) no-repeat 0px 0px;
+    background: #f3efef no-repeat 0px 0px;
     background-size: cover;
     width: 100vw;
     height: 100vh;
@@ -21,47 +25,55 @@ body {
     align-items: center;
     justify-content: center;
 }
+#home h1 {
+    margin: 0;
+    color: orange;
+    font-size: 3rem;
+}
+#home p {
+    color: black;
+    font-size: 1.5rem;
+    margin: 0;
+}
 
 
 .divMessagem {
-    background: #00000080;
+    background: #ffffff;
     padding: 20px;
-    border-radius: 30px;
-}
-.divMessagem h1 {
-      margin: 0;
-      font-size: 5em;
-}
-.divMessagem form {
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px black;
+    margin-left: 30px;
+    width: 250px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-direction: column;
 }
-.divMessagem form label {
+.divMessagem label {
     color: orange;
     text-decoration: none;
-    font-size: 22px;
-    margin: 5px 0;
+    font-size: 1.8rem;
+    font-weight: 600;
 }
-.divMessagem form input {
-    width: 150px;
-    padding: 5px;
-    margin: 5px 0;
+.divMessagem input {
+    width: calc(100% - 13px);
+    padding: 10px 5px;
+    margin: 15px 0 5px;
+    font-size: 15px;
 }
-.divMessagem form button {
-    width: 150px;
+.divMessagem button {
+    width: 100%;
     height: 30px;
     margin: 5px 0;
-    border: 1px solid black;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 1.2rem;
     background: orange;
     color: white;
     font-weight: 600;
+    border: 1px solid #cb8609;
 }
-.divMessagem form button:hover {
-    background: #dda33c;
+.divMessagem button:hover {
+    background: #cb8609;
 }
 .divMessagem .textShadow {
       text-shadow: 2px 2px 3px rgb(0 0 0 / 60%);
@@ -109,9 +121,10 @@ body {
     width: 82%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    flex-direction: column;
 }
-#content h2 {
+#content .header {
     text-align: center;
     font-size: 2rem;
     font-weight: 800;
@@ -119,52 +132,60 @@ body {
     margin: 0;
     padding: 10px 0;
     background: #262626;
+    width: 100%;
+}
+#content .footer {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 800;
+    color: orange;
+    margin: 0;
+    padding: 10px 0;
+    background: #262626;
+    width: 100%;
 }
 
-#content .info {
-    padding: 10px;
+#content .criarCarga {
+    width: 300px;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     flex-direction: column;
-    min-height: 30vh;
+    height: auto;
+    border: 1px solid black;
+    padding: 20px;
+    box-shadow: 0px 0px 15px -5px black;
+    border-radius: 10px;
 }
-#content .info__input {
-    display: flex;
-    flex-direction: column;
+#content .criarCarga input {
+    width: calc(100% - 13px);
+    padding: 10px 5px;
+    margin: 15px 0 5px;
+    font-size: 15px;
+}
+#content .criarCarga button {
+    width: 100%;
+    height: 30px;
+    margin: 5px 0;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    background: orange;
+    color: white;
+    font-weight: 600;
+    border: 1px solid #cb8609;
 }
 
-#content .dashboard h2 {
-    font-size: 2rem;
+#content #dashboard label {
+    font-size: 1rem;
     font-weight: 700;
+    color: red;
+;
 }
-#content .dashboard thead {
-    background: orange;
+#content #dashboard tr th {
+    color: black;
+    font-size: 1.5rem;
 }
-#content .dashboard span {
+#content #dashboard span {
     color: white;
     font-size: 1rem;
-}
-
-#content .book label {
-    font-size: 1em;
-}
-
-
-#content .book .actionDiv {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-#content .book .actionDiv button {
-    background: orange;
-    border: 2px solid #dda33c;
-    color: #fff;
-    margin: 0 5px;
-    padding: 10px 15px;
-    border-radius: 50px;
-    transition: 0.5s;
-}
-#content .book .actionDiv button:hover {
-    background: #dda33c;
 }
