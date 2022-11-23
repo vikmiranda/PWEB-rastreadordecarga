@@ -31,10 +31,10 @@ export default function Index () {
       <h1>Origem: {carga.cidade_origem}</h1>
       <h1>Destino: {carga.cidade_destino}</h1>
 
-      <h1>Localização: {carga.localizacao}</h1>
+      <h1>Localização atual: {carga.localizacao}</h1>
 
       <h1>Status: {carga.status}</h1>
-      {moment(carga.data_limite).format("D/MM/YYYY") }
+      <h1>{moment(carga.data_limite).format("D/MM/YYYY")}</h1>
 
     </div>
   )

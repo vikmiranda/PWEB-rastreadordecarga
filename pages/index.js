@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import '../styles/Home.module.scss'
 
 export default function Home() {
   const router = useRouter()
@@ -12,7 +11,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div id="home">
+      <div className="home">
           <div>
               <h1>Rastreio de Carga</h1>
               <p>Rastrei sua carga com código de rastreio</p>

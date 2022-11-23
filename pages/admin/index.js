@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import moment from 'moment'
 
 import api from '../../services/api'
+import Link from 'next/link'
 
 export async function getServerSideProps() {
   const { data } = await api.get()
@@ -17,16 +18,16 @@ export default function Index({ cargas }) {
   const router = useRouter()
   useEffect(() => {
     const token = localStorage.getItem('userLogged')
-    if(!token) {
+    if (!token) {
       router.push('/admin/login')
     }
   })
 
-  async function handlerSubmit (e) {
+  async function handlerSubmit(e) {
     e.preventDefault()
     const { cidade_origem, cidade_destino, date } = e.target.elements
     try {
-      const carga = await api.post('', {
+      await api.post('', {
         cidade_origem: cidade_origem.value,
         cidade_destino: cidade_destino.value,
         date: date.value
@@ -37,21 +38,20 @@ export default function Index({ cargas }) {
   }
 
   return (
-    <div id="home">
-      <div id="menu">
+    <div className="home">
+      <div className="menu">
         <hr />
         <ul>
-          <li><a href="/">Cargo Track</a></li>
-          <li><a href="#criarcarga">Registro de Carga</a></li>
-          <li><a href="#dashboard">Dashboard</a></li>
+          <li><Link href={"/admin/carga"}>Registro de Carga</Link></li>
+          <li><Link href={"/dashboard"}>Dashboard</Link></li>
         </ul>
       </div>
       <div id="content">
         <h2 className="header">Registro de Carga</h2>
         <form id="criarcarga" className="criarCarga" onSubmit={handlerSubmit}>
-          <input type="text" name="cidade_origem" placeholder="Cidade Origem"/>
-          <input type="text" name="cidade_destino" placeholder="Cidade Destino"/>
-          <input type="date" name="date" placeholder="Data para entrega"/>
+          <input type="text" name="cidade_origem" placeholder="Cidade Origem" />
+          <input type="text" name="cidade_destino" placeholder="Cidade Destino" />
+          <input type="date" name="date" placeholder="Data para entrega" />
           <button type="submit">Buscar</button>
         </form>
 
@@ -66,52 +66,41 @@ export default function Index({ cargas }) {
               <th>Data</th>
               <th>Ação</th>
             </tr>
-            <tr>
-              <td>
-                {cargas.map((item,element) => (
-                    <li key={element}>
+            {
+              cargas.map((item, index) => (
+                <tr key={index}>
+                  <td>
+                    <li>
                       <p>{item.cod_rastreamento}</p>
                     </li>
-                ))}
-              </td>
-              <td>
-                {cargas.map((item,element) => (
-                    <li key={element}>
+                  </td>
+                  <td>
+                    <li>
                       <p>{item.cidade_origem}</p>
                     </li>
-                ))}
-              </td>
-              <td>
-                {cargas.map((item,element) => (
-                    <li key={element}>
+                  </td>
+                  <td>
+                    <li>
                       <p>{item.cidade_destino}</p>
                     </li>
-                ))}
-              </td>
-              <td>
-                {cargas.map((item,element) => (
-                    <li key={element}>
+                  </td>
+                  <td>
+                    <li>
                       <p>{item.status}</p>
                     </li>
-                ))}
-              </td>
-              <td>
-                {cargas.map((item,element) => (
-                    <li key={element}>
+                  </td>
+                  <td>
+                    <li>
                       <p>{moment(item.data_limite).format("D/MM/YYYY")}</p>
                     </li>
-                ))}
-              </td>
-              <td>
-                {cargas.map((item,element) => (
-                    <li key={element}>
-                      <button onClick={()=> {router.push(`/admin/edit_carga/${item.cod_rastreamento}`)}}>Abrir</button>
+                  </td>
+                  <td>
+                    <li>
+                      <button onClick={() => { router.push(`/admin/edit_carga/${item.cod_rastreamento}`) }}>Abrir</button>
                     </li>
-                ))}
-              </td>
-
-
-            </tr>
+                  </td>
+                </tr>
+              ))}
           </table>
 
         </div>
