@@ -37,13 +37,25 @@ export default function Index({ cargas }) {
     }
   }
 
+  const handleSubimitLogout = async (e) => {
+    e.preventDefault()
+    try {
+      router.push('/')
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <div className="home">
-      <div className="menu">
+      <div id="menu">
         <hr />
         <ul>
           <li><Link href={"/admin/carga"}>Registro de Carga</Link></li>
           <li><Link href={"/dashboard"}>Dashboard</Link></li>
+          <li><button onClick={handleSubimitLogout}>
+            Sair
+          </button></li>
         </ul>
       </div>
       <div id="content">
@@ -56,7 +68,7 @@ export default function Index({ cargas }) {
         </form>
 
         <div id="dashboard">
-          <label>Fazer script de renderizar o contéudo apenas ao clicar no menu</label>
+          {/*<label>Fazer script de renderizar o contéudo apenas ao clicar no menu</label>*/}
           <table>
             <tr>
               <th>Codigo</th>

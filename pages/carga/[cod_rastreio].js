@@ -26,16 +26,28 @@ export default function Index () {
 
   return (
     <div>
-      <h1>{carga.cod_rastreamento}</h1>
+        <div className="paginaRastreio">
+            <div className="rastreioCarga">
 
-      <h1>Origem: {carga.cidade_origem}</h1>
-      <h1>Destino: {carga.cidade_destino}</h1>
+                <p>Acompanhe sua carga!</p>
+                <h1>{carga.cod_rastreamento}</h1>
 
-      <h1>Localização atual: {carga.localizacao}</h1>
+                <label>Origem:</label>
+                <span>{carga.cidade_origem}</span>
 
-      <h1>Status: {carga.status}</h1>
-      <h1>{moment(carga.data_limite).format("D/MM/YYYY")}</h1>
+                <label>Destino:</label>
+                <span>{carga.cidade_destino}</span>
 
+                <label>Localização atual:</label>
+                <span>{carga.localizacao}</span>
+
+                <label>Status:</label>
+                <span>{carga.status}</span>
+
+                <label>Previsão de Entrega:</label>
+                <span>{moment(carga.data_limite).format("D/MM/YYYY")}</span>
+            </div>
+        </div>
     </div>
   )
 }

@@ -29,10 +29,11 @@ export default function Login () {
   }
 
   return (
-    <div>
-      <form
-        onSubmit={handleSubimit}
-      >
+    <div id="loginDiv">
+      <form onSubmit={handleSubimit}>
+
+        <h1>Acessar Conta</h1>
+
         <input
           type="email"
           name="email"
