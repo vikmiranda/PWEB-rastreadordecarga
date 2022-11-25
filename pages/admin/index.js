@@ -37,6 +37,18 @@ export default function Index({ cargas }) {
     }
   }
 
+  async function menuClick(e) {
+    const criarcarga = document.getElementById('criarcarga');
+    const dashboard = document.getElementById('dashboard');
+    if (e.target.id === "registrarCarga") {
+      dashboard.className = "openInfoMenu";
+      criarcarga.classList.remove("openInfoMenu");
+    } else if (e.target.id === "visualizarDashboard") {
+      criarcarga.className = "openInfoMenu";
+      dashboard.classList.remove("openInfoMenu");
+    }
+  };
+
   const handleSubimitLogout = async (e) => {
     e.preventDefault()
     try {
@@ -46,28 +58,59 @@ export default function Index({ cargas }) {
     }
   }
 
+
   return (
     <div className="home">
       <div id="menu">
         <hr />
         <ul>
-          <li><Link href={"/admin/carga"}>Registro de Carga</Link></li>
-          <li><Link href={"/dashboard"}>Dashboard</Link></li>
-          <li><button onClick={handleSubimitLogout}>
-            Sair
-          </button></li>
+          <li><button id="registrarCarga" onClick={menuClick}>Registro de Carga</button></li>
+          <li><button id="visualizarDashboard" onClick={menuClick}>Dashboard</button></li>
+          <li><button onClick={handleSubimitLogout}>Sair</button></li>
         </ul>
       </div>
       <div id="content">
-        <h2 className="header">Registro de Carga</h2>
-        <form id="criarcarga" className="criarCarga" onSubmit={handlerSubmit}>
-          <input type="text" name="cidade_origem" placeholder="Cidade Origem" />
-          <input type="text" name="cidade_destino" placeholder="Cidade Destino" />
-          <input type="date" name="date" placeholder="Data para entrega" />
-          <button type="submit">Buscar</button>
-        </form>
+        <div id="criarcarga">
+          <form id="formCriarcarga" className="criarCarga" onSubmit={handlerSubmit}>
+            <label>Cidade de Origem:</label>
+            <select name="cidade_origem">
+              <option value="">Selecione cidade</option>
+              <option value="Macapá">Macapá</option>
+              <option value="Belém">Belém</option>
+              <option value="São Luis">São Luis</option>
+              <option value="Fortaleza">Fortaleza</option>
+              <option value="Natal">Natal</option>
+              <option value="Recife">Recife</option>
+              <option value="Maceió">Maceió</option>
+              <option value="Aracáju">Aracáju</option>
+              <option value="Salvador">Salvador</option>
+              <option value="Vitória">Vitória</option>
+              <option value="Rio de Janeiro">Rio de Janeiro</option>
+              <option value="Santos">Santos</option>
+            </select>
+            <label>Cidade de Destino:</label>
+            <select name="cidade_destino" placeholder="Cidade Destino">
+              <option value="">Selecione cidade</option>
+              <option value="Macapá">Macapá</option>
+              <option value="Belém">Belém</option>
+              <option value="São Luis">São Luis</option>
+              <option value="Fortaleza">Fortaleza</option>
+              <option value="Natal">Natal</option>
+              <option value="Recife">Recife</option>
+              <option value="Maceió">Maceió</option>
+              <option value="Aracáju">Aracáju</option>
+              <option value="Salvador">Salvador</option>
+              <option value="Vitória">Vitória</option>
+              <option value="Rio de Janeiro">Rio de Janeiro</option>
+              <option value="Santos">Santos</option>
+            </select>
+            <label>Data de Chegada Limite:</label>
+            <input type="date" name="date" placeholder="Data para entrega" />
+            <button type="submit">Cadastrar Carga</button>
+          </form>
+        </div>
 
-        <div id="dashboard">
+        <div id="dashboard" className="openInfoMenu">
           {/*<label>Fazer script de renderizar o contéudo apenas ao clicar no menu</label>*/}
           <table>
             <tr>
@@ -116,9 +159,9 @@ export default function Index({ cargas }) {
           </table>
 
         </div>
-
-        <h2 className="footer">Todos direitos reservados</h2>
       </div>
+
+      <script type="text/javascript" src="../../assets/menu.js"></script>
     </div>
   )
 }

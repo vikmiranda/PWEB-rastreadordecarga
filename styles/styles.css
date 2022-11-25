@@ -125,34 +125,24 @@ body {
     border-radius: 15px;
     color: white;
 }
+.openInfoMenu {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 
 #content {
     min-height: 100vh;
     width: 82%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     flex-direction: column;
-}
-#content .header {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 800;
-    color: orange;
-    margin: 0;
-    padding: 10px 0;
-    background: #262626;
-    width: 100%;
-}
-#content .footer {
-    text-align: center;
-    font-size: 1rem;
-    font-weight: 800;
-    color: orange;
-    margin: 0;
-    padding: 10px 0;
-    background: #262626;
-    width: 100%;
 }
 
 #content .criarCarga {
@@ -167,6 +157,19 @@ body {
     box-shadow: 0px 0px 15px -5px black;
     border-radius: 10px;
 }
+
+#content .criarCarga label {
+    color: black;
+    font-weight: 600;
+}
+
+#content .criarCarga select {
+    padding: 10px 5px;
+    width: 100%;
+    font-size: 15px;
+    margin: 15px 0 5px;
+}
+
 #content .criarCarga input {
     width: calc(100% - 13px);
     padding: 10px 5px;
