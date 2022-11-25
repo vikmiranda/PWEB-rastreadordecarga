@@ -1,4 +1,4 @@
-const { navioModel} = require('../models');
+const { navioModel } = require('../models');
 
 class Navio {
     async criarNavio(bodyOfRequest) {
@@ -29,7 +29,7 @@ class Navio {
             return navio;
         }
         catch (error) {
-            throw new Error("Error in listarCarga: " + error.message);
+            throw new Error("Error in listarNavio: " + error.message);
         }
     }
 

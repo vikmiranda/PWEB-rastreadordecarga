@@ -14,7 +14,7 @@ routes.delete('/:id', cargaControler.deletarCarga);
 routes.post('/user', userControler.login);
 
 routes.post('/navio', navioControler.criarNavio);
-routes.get('/navio', navioControler.listarNavio);
+routes.get('/navio/get', navioControler.listarNavio);
 routes.get('/navio/:id', navioControler.pegarNavioPeloId);
 routes.put('/navio/:id', navioControler.atualizarNavio);
 routes.delete('/navio/:id', navioControler.deletarNavio);
