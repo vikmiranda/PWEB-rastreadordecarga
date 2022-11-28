@@ -1,7 +1,7 @@
 const { rotaService } = require('../services');
 
 class Rota {
-    async criarNavio(req, res) {
+    async criarRota(req, res) {
         try {
             const bodyRequest = req.body;
             const rota = await rotaService.criarRota(bodyRequest);
@@ -12,7 +12,7 @@ class Rota {
         }
     }
 
-    async listarNavio(req, res) {
+    async listarRota(req, res) {
         try {
             const rotas = await rotaService.listarRotas();
             return res.status(200).send(rotas);
@@ -22,7 +22,7 @@ class Rota {
         }
     }
 
-    async pegarNavioPeloId(req, res) {
+    async pegarRotaPeloId(req, res) {
         try {
             const { id } = req.params;
             const rota = await rotaService.pegarRotaPeloId(id);
@@ -33,7 +33,7 @@ class Rota {
         }
     }
 
-    async atualizarNavio(req, res) {
+    async atualizarRota(req, res) {
         try {
             const bodyRequest = req.body;
             bodyRequest.id = req.params.id;
@@ -46,7 +46,7 @@ class Rota {
         }
     }
 
-    async deletarNavio(req, res) {
+    async deletarRota(req, res) {
         try {
             const { id } = req.params;
             const rota = await rotaService.deletarRota(id);

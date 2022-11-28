@@ -11,6 +11,7 @@ const CargaSchema = new Schema({
         {
             nome_local: String,
             data_local: Date,
+            evento_local: String,
         }
     ]
 },

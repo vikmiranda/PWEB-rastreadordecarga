@@ -1,6 +1,6 @@
 const routes = require('express').Router();
 const { cargaControler } = require('./controller')
-const { navioControler } = require('./controller')
+const { rotaControler } = require('./controller')
 const { userControler } = require('./controller')
 
 
@@ -13,10 +13,10 @@ routes.delete('/:id', cargaControler.deletarCarga);
 
 routes.post('/user', userControler.login);
 
-routes.post('/navio', navioControler.criarNavio);
-routes.get('/navio/get', navioControler.listarNavio);
-routes.get('/navio/:id', navioControler.pegarNavioPeloId);
-routes.put('/navio/:id', navioControler.atualizarNavio);
-routes.delete('/navio/:id', navioControler.deletarNavio);
+routes.post('/rota', rotaControler.criarRota);
+routes.get('/rota/get', rotaControler.listarRota);
+routes.get('/rota/:id', rotaControler.pegarRotaPeloId);
+routes.put('/rota/:id', rotaControler.atualizarRota);
+routes.delete('/rota/:id', rotaControler.deletarRota);
 
 module.exports = routes;
