@@ -1,11 +1,11 @@
-const { navioService } = require('../services');
+const { rotaService } = require('../services');
 
-class Navio {
+class Rota {
     async criarNavio(req, res) {
         try {
             const bodyRequest = req.body;
-            const navio = await navioService.criarNavio(bodyRequest);
-            return res.status(201).send(navio);
+            const rota = await rotaService.criarRota(bodyRequest);
+            return res.status(201).send(rota);
         }
         catch (error) {
             return res.status(500).send({error: error.message});
@@ -14,8 +14,8 @@ class Navio {
 
     async listarNavio(req, res) {
         try {
-            const navios = await navioService.listarNavio();
-            return res.status(200).send(navios);
+            const rotas = await rotaService.listarRotas();
+            return res.status(200).send(rotas);
         }
         catch (error) {
             return res.status(500).send({error: error.message});
@@ -25,8 +25,8 @@ class Navio {
     async pegarNavioPeloId(req, res) {
         try {
             const { id } = req.params;
-            const navio = await navioService.pegarNavioPeloId(id);
-            return res.status(200).send(navio);
+            const rota = await rotaService.pegarRotaPeloId(id);
+            return res.status(200).send(rota);
         }
         catch (error) {
             return res.status(500).send({error: error.message});
@@ -38,8 +38,8 @@ class Navio {
             const bodyRequest = req.body;
             bodyRequest.id = req.params.id;
 
-            const navio = await navioService.atualizarNavio(bodyRequest);
-            return res.status(200).send(navio);
+            const rota = await rotaService.atualizarRota(bodyRequest);
+            return res.status(200).send(rota);
         }
         catch (error) {
             return res.status(500).send({error: error.message});
@@ -49,8 +49,8 @@ class Navio {
     async deletarNavio(req, res) {
         try {
             const { id } = req.params;
-            const navio = await navioService.deletarNavio(id);
-            return res.status(200).send(navio);
+            const rota = await rotaService.deletarRota(id);
+            return res.status(200).send(rota);
         }
         catch (error) {
             return res.status(500).send({error: error.message});
@@ -58,4 +58,4 @@ class Navio {
     }
 }
 
-module.exports = new Navio();
+module.exports = new Rota();

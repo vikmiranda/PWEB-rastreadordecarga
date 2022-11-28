@@ -1,5 +1,5 @@
 module.exports = {
     cargaModel: require('./Carga'),
-    navioModel: require('./Navio'),
+    rotaModel: require('./Rota'),
     userModel: require('./User')
 }

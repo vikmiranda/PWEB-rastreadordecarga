@@ -7,7 +7,12 @@ const CargaSchema = new Schema({
     data_limite: Date,
     localizacao: String,
     status: String,
-    
+    historico: [
+        {
+            nome_local: String,
+            data_local: Date,
+        }
+    ]
 },
 
 {

@@ -1,5 +1,5 @@
 module.exports = {
     cargaService: require('./Carga'),
-    navioService: require('./Navio'),
+    rotaService: require('./Rota'),
     userService: require('./User')
 }

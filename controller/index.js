@@ -1,5 +1,5 @@
 module.exports = {
     cargaControler: require('./Carga'),
-    navioControler: require('./Navio'),
+    rotaControler: require('./Rota'),
     userControler: require('./User')
 }
