@@ -38,14 +38,33 @@ export default function Index () {
                 <label>Destino:</label>
                 <span>{carga.cidade_destino}</span>
 
-                <label>Localização atual:</label>
-                <span>{carga.localizacao}</span>
-
                 <label>Status:</label>
                 <span>{carga.status}</span>
 
                 <label>Previsão de Entrega:</label>
                 <span>{moment(carga.data_limite).format("D/MM/YYYY")}</span>
+
+                <h2>Histórico</h2>
+
+                <table>
+                    <tr>
+                        <th>Data</th>
+                        <th>Local</th>
+                    </tr>
+                    <tr>
+
+                        <td>
+                            <li>
+                                <p>{moment(carga.data_limite).format("D/MM/YYYY")}</p>
+                            </li>
+                        </td>
+                        <td>
+                            <li>
+                                <p>{carga.localizacao}</p>
+                            </li>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>

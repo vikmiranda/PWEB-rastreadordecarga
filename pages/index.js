@@ -11,7 +11,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="home">
+      <div className="home homePrincipal">
           <div>
               <h1>Rastreio de Carga</h1>
               <p>Rastrei sua carga com código de rastreio</p>
