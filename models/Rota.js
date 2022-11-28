@@ -8,11 +8,6 @@ const RotaSchema = new Schema({
             nome_cidade: String,
         }
     ],
-    navio: [
-        {
-            nome_navio: String,
-        }
-    ]
 },
 
 {

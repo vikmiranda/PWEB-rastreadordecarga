@@ -16,7 +16,6 @@ class Carga {
                 cidade_origem,
                 cidade_destino,
                 data_limite,
-                localizacao: cidade_origem, //inicia na cidade origem
                 status: 'registrado'
             });
 
@@ -80,7 +79,6 @@ class Carga {
                 cidade_origem,
                 cidade_destino,
                 data_limite,
-                localizacao,
                 status
             } = bodyOfRequest;
 
@@ -89,7 +87,6 @@ class Carga {
                     cidade_origem,
                     cidade_destino,
                     data_limite,
-                    localizacao,
                     status
                 },
                 {

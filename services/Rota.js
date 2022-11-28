@@ -5,14 +5,12 @@ class Rota {
         try {
             const {
                 nome,
-                cidade: [posicao_cidade, nome_cidade],
-                navio: [nome_navio],
+                cidade: [posicao_cidade, nome_cidade]
             } = bodyOfRequest;
 
             const novaRota = new rotaModel({
                 nome,
-                cidade: [posicao_cidade, nome_cidade],
-                navio: [nome_navio],
+                cidade: [posicao_cidade, nome_cidade]
             });
 
             const rota = await novaRota.save();
@@ -55,14 +53,12 @@ class Rota {
             const {
                 id,
                 nome,
-                cidade: [posicao_cidade, nome_cidade],
-                navio: [nome_navio],
+                cidade: [posicao_cidade, nome_cidade]
             } = bodyOfRequest;
 
             const rota = await rotaModel.findByIdAndUpdate(id, {
                     nome,
-                    cidade: [posicao_cidade, nome_cidade],
-                    navio: [nome_navio],
+                    cidade: [posicao_cidade, nome_cidade]
                 },
                 {
                     new: true

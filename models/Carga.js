@@ -5,7 +5,6 @@ const CargaSchema = new Schema({
     cidade_origem: String,
     cidade_destino: String,
     data_limite: Date,
-    localizacao: String,
     status: String,
     historico: [
         {
