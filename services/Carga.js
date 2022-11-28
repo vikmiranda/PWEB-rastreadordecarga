@@ -8,7 +8,8 @@ class Carga {
             const {
                 cidade_origem,
                 cidade_destino,
-                data_limite
+                data_limite,
+                historico
             } = bodyOfRequest;
 
             const novaCarga = new cargaModel({
@@ -16,7 +17,8 @@ class Carga {
                 cidade_origem,
                 cidade_destino,
                 data_limite,
-                status: 'registrado'
+                status: 'registrado',
+                historico
             });
 
             const carga = await novaCarga.save();
@@ -79,7 +81,8 @@ class Carga {
                 cidade_origem,
                 cidade_destino,
                 data_limite,
-                status
+                status,
+                historico
             } = bodyOfRequest;
 
             const carga = await cargaModel.findByIdAndUpdate(id, {
@@ -87,7 +90,8 @@ class Carga {
                     cidade_origem,
                     cidade_destino,
                     data_limite,
-                    status
+                    status,
+                    historico
                 },
                 {
                     new: true

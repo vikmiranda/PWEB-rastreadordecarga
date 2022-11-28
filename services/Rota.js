@@ -5,16 +5,15 @@ class Rota {
         try {
             const {
                 nome,
-                cidade: [posicao_cidade, nome_cidade]
+                cidade
             } = bodyOfRequest;
 
             const novaRota = new rotaModel({
                 nome,
-                cidade: [posicao_cidade, nome_cidade]
+                cidade
             });
 
             const rota = await novaRota.save();
-
             return rota;
         }
         catch (error) {
