@@ -20,10 +20,10 @@ body {
     color: #f8f8f8;
     background: #f3efef no-repeat 0px 0px;
     background-size: cover;
-    width: 100vw;
-    height: 100vh;
+    width: 99vw;
+    min-height: 100vh;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
 }
 .home h1 {
@@ -188,6 +188,12 @@ body {
     border: 1px solid #cb8609;
 }
 
+#content #dashboard h2 {
+    color: orange;
+    background: white;
+    padding: 10px;
+    border-radius: 20px;
+}
 #content #dashboard label {
     font-size: 1rem;
     font-weight: 700;

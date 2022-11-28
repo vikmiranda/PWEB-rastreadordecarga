@@ -42,10 +42,16 @@ export default function Index({ cargas }) {
     const dashboard = document.getElementById('dashboard');
     if (e.target.id === "registrarCarga") {
       dashboard.className = "openInfoMenu";
+      atualizarcarga.className = "openInfoMenu";
       criarcarga.classList.remove("openInfoMenu");
     } else if (e.target.id === "visualizarDashboard") {
       criarcarga.className = "openInfoMenu";
+      atualizarcarga.className = "openInfoMenu";
       dashboard.classList.remove("openInfoMenu");
+    } else if (e.target.id === "atualizarCarga") {
+      dashboard.className = "openInfoMenu";
+      criarcarga.className = "openInfoMenu";
+      atualizarcarga.classList.remove("openInfoMenu");
     }
   };
 
@@ -66,6 +72,7 @@ export default function Index({ cargas }) {
         <ul>
           <li><button id="registrarCarga" onClick={menuClick}>Registro de Carga</button></li>
           <li><button id="visualizarDashboard" onClick={menuClick}>Dashboard</button></li>
+          <li><button id="atualizarCarga" onClick={menuClick}>Atualizar Carga</button></li>
           <li><button onClick={handleSubimitLogout}>Sair</button></li>
         </ul>
       </div>
@@ -111,7 +118,7 @@ export default function Index({ cargas }) {
         </div>
 
         <div id="dashboard" className="openInfoMenu">
-          {/*<label>Fazer script de renderizar o contéudo apenas ao clicar no menu</label>*/}
+          <h2>Carga Roteada</h2>
           <table>
             <tr>
               <th>Codigo</th>
@@ -155,9 +162,94 @@ export default function Index({ cargas }) {
                     </li>
                   </td>
                 </tr>
-              ))}
+              ))
+            }
           </table>
 
+          <h2>Carga Reivindicada</h2>
+          <table>
+            <tr>
+              <th>Codigo</th>
+              <th>Origem</th>
+              <th>Destino</th>
+              <th>Data</th>
+              <th>Ação</th>
+            </tr>
+            {
+              cargas.map((item, index) => (
+                  <tr key={index}>
+                    <td>
+                      <li>
+                        <p>{item.cod_rastreamento}</p>
+                      </li>
+                    </td>
+                    <td>
+                      <li>
+                        <p>{item.cidade_origem}</p>
+                      </li>
+                    </td>
+                    <td>
+                      <li>
+                        <p>{item.cidade_destino}</p>
+                      </li>
+                    </td>
+                    <td>
+                      <li>
+                        <p>{moment(item.data_limite).format("D/MM/YYYY")}</p>
+                      </li>
+                    </td>
+                    <td>
+                      <li>
+                        <button onClick={() => { router.push(`/admin/edit_carga/${item.cod_rastreamento}`) }}>Abrir</button>
+                      </li>
+                    </td>
+                  </tr>
+              ))
+            }
+          </table>
+
+        </div>
+
+        <div id="atualizarcarga">
+          <form id="formAtualizarCarga" className="criarCarga" onSubmit={handlerSubmit}>
+            <label>Código de Rastreio:</label>
+            <input/>
+            <label>Cidade Atual:</label>
+            <select name="cidade_atual">
+              <option value="">Selecione cidade</option>
+              <option value="Macapá">Macapá</option>
+              <option value="Belém">Belém</option>
+              <option value="São Luis">São Luis</option>
+              <option value="Fortaleza">Fortaleza</option>
+              <option value="Natal">Natal</option>
+              <option value="Recife">Recife</option>
+              <option value="Maceió">Maceió</option>
+              <option value="Aracáju">Aracáju</option>
+              <option value="Salvador">Salvador</option>
+              <option value="Vitória">Vitória</option>
+              <option value="Rio de Janeiro">Rio de Janeiro</option>
+              <option value="Santos">Santos</option>
+            </select>
+            <label>Tipo de evento:</label>
+            <select name="cidade_destino">
+              <option value="">Selecione cidade</option>
+              <option value="Custom">Custom</option>
+              <option value="Unload">Unload</option>
+              <option value="Claim">Claim</option>
+              <option value="Receive">Receive</option>
+              <option value="Load">Load</option>
+            </select>
+            <label>Navio:</label>
+            <select name="cidade_destino">
+              <option value="">Selecione cidade</option>
+              <option value="Custom">Custom</option>
+              <option value="Unload">Unload</option>
+              <option value="Claim">Claim</option>
+              <option value="Receive">Receive</option>
+              <option value="Load">Load</option>
+            </select>
+            <button type="submit">Salvar</button>
+          </form>
         </div>
       </div>
 
