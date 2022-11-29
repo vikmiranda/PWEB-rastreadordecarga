@@ -1,5 +1,6 @@
-const { cargaModel } = require('../models');
+const { cargaModel, rotaModel } = require('../models');
 const cod_rastreio = require('../script/codigoRastreamentoAleatorio');
+const Rota = require('./Rota');
 
 class Carga {
     async criarCarga(bodyOfRequest) {
@@ -9,7 +10,6 @@ class Carga {
                 cidade_origem,
                 cidade_destino,
                 data_limite,
-                historico
             } = bodyOfRequest;
 
             const novaCarga = new cargaModel({
@@ -18,7 +18,8 @@ class Carga {
                 cidade_destino,
                 data_limite,
                 status: 'registrado',
-                historico
+                Rota,
+                historico: []
             });
 
             const carga = await novaCarga.save();
@@ -138,15 +139,19 @@ class Carga {
                 cidade_destino,
                 data_limite,
                 status,
+                rota,
                 historico
             } = bodyOfRequest;
 
+            const dadosrota = await rotaModel.findById(rota);
+    
             const carga = await cargaModel.findByIdAndUpdate(id, {
                     cod_rastreamento,
                     cidade_origem,
                     cidade_destino,
                     data_limite,
                     status,
+                    rota: dadosrota,
                     historico
                 },
                 {
