@@ -118,6 +118,48 @@ export default function Index({ cargas }) {
         </div>
 
         <div id="dashboard" className="openInfoMenu">
+          <h2>Carga Não Roteada</h2>
+          <table>
+            <tr>
+              <th>Codigo</th>
+              <th>Origem</th>
+              <th>Destino</th>
+              <th>Data</th>
+              <th>Ação</th>
+            </tr>
+            {
+              cargas.map((item, index) => (
+                  <tr key={index}>
+                    <td>
+                      <li>
+                        <p>{item.cod_rastreamento}</p>
+                      </li>
+                    </td>
+                    <td>
+                      <li>
+                        <p>{item.cidade_origem}</p>
+                      </li>
+                    </td>
+                    <td>
+                      <li>
+                        <p>{item.cidade_destino}</p>
+                      </li>
+                    </td>
+                    <td>
+                      <li>
+                        <p>{moment(item.data_limite).format("D/MM/YYYY")}</p>
+                      </li>
+                    </td>
+                    <td>
+                      <li>
+                        <button onClick={() => { router.push(`/admin/edit_carga/${item.cod_rastreamento}`) }}>Abrir</button>
+                      </li>
+                    </td>
+                  </tr>
+              ))
+            }
+          </table>
+
           <h2>Carga Roteada</h2>
           <table>
             <tr>
@@ -231,22 +273,13 @@ export default function Index({ cargas }) {
               <option value="Santos">Santos</option>
             </select>
             <label>Tipo de evento:</label>
-            <select name="cidade_destino">
-              <option value="">Selecione cidade</option>
+            <select>
+              <option value="">Selecione evento</option>
               <option value="Custom">Custom</option>
-              <option value="Unload">Unload</option>
-              <option value="Claim">Claim</option>
-              <option value="Receive">Receive</option>
-              <option value="Load">Load</option>
-            </select>
-            <label>Navio:</label>
-            <select name="cidade_destino">
-              <option value="">Selecione cidade</option>
-              <option value="Custom">Custom</option>
-              <option value="Unload">Unload</option>
-              <option value="Claim">Claim</option>
-              <option value="Receive">Receive</option>
-              <option value="Load">Load</option>
+              <option value="Descarregar">Descarregar</option>
+              <option value="Reivindicar">Reivindicar</option>
+              <option value="Receber">Receber</option>
+              <option value="Carregar">Carregar</option>
             </select>
             <button type="submit">Salvar</button>
           </form>

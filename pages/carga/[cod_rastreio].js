@@ -49,6 +49,7 @@ export default function Index () {
                 <table>
                     <tr>
                         <th>Data</th>
+                        <th>Tipo de Evento</th>
                         <th>Local</th>
                     </tr>
                     <tr>
