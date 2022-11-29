@@ -21,7 +21,7 @@ class Carga {
             return res.status(500).send({error: error.message});
         }
     }
-
+    
     async pegarCargarPeloId(req, res) {
         try {
             const { id } = req.params;
@@ -43,6 +43,37 @@ class Carga {
             return res.status(500).send({error: error.message});
         }
     }
+
+    async pegarCargasRegistrada(req, res) {
+        try {
+            const carga = await cargaService.pegarCargasRegistrada();
+            return res.status(200).send(carga);
+        }
+        catch (error) {
+            return res.status(500).send({error: error.message});
+        }
+    }
+
+    async pegarCargasCaminho(req, res) {
+        try {
+            const carga = await cargaService.pegarCargasCaminho();
+            return res.status(200).send(carga);
+        }
+        catch (error) {
+            return res.status(500).send({error: error.message});
+        }
+    }
+
+    async pegarCargasEntregue(req, res) {
+        try {
+            const carga = await cargaService.pegarCargasEntregue();
+            return res.status(200).send(carga);
+        }
+        catch (error) {
+            return res.status(500).send({error: error.message});
+        }
+    }
+
 
     async atualizarCarga(req, res) {
         try {

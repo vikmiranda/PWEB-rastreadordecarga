@@ -56,6 +56,7 @@ class Carga {
         }
     }
 
+
     async pegarCargarPeloCodRastreio(cod_rastreio) {
         try {
             const carga = await cargaModel.findOne({
@@ -72,6 +73,61 @@ class Carga {
             throw new Error("Error in pegarCargarPeloCodRastreio: " + error.message);
         }
     }
+
+    async pegarCargasRegistrada() {
+        try {
+            const carga = await cargaModel.find({
+                status: 'registrado'
+            });
+
+            if(!carga) {
+                throw new Error("Nenhuma Carga com Status 'Registrado' ");
+            }
+
+            return carga;
+        }
+        catch (error) {
+            throw new Error("Error in pegarCargasRegistrada: " + error.message);
+        }
+    }
+
+    async pegarCargasCaminho() {
+        try {
+            const carga = await cargaModel.find({
+                status: 'em caminho'
+            });
+
+            if(!carga) {
+                throw new Error("Nenhuma Carga com Status 'Em Caminho' ");
+            }
+
+            return carga;
+        }
+        catch (error) {
+            throw new Error("Error in pegarCargasCaminho: " + error.message);
+        }
+    }
+
+    
+    async pegarCargasEntregue() {
+        try {
+            const carga = await cargaModel.find({
+                status: 'entregue'
+            });
+
+            if(!carga) {
+                throw new Error("Nenhuma Carga com Status 'Entregue' ");
+            }
+
+            return carga;
+        }
+        catch (error) {
+            throw new Error("Error in pegarCargasEntregue: " + error.message);
+        }
+    }
+
+
+
 
     async atualizarCarga(bodyOfRequest) {
         try {

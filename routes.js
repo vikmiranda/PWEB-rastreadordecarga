@@ -4,10 +4,15 @@ const { rotaControler } = require('./controller')
 const { userControler } = require('./controller')
 
 
-routes.post('/', cargaControler.criarCarga);
 routes.get('/', cargaControler.listarCarga);
+routes.get('/registradas', cargaControler.pegarCargasRegistrada);
+routes.get('/emcaminho', cargaControler.pegarCargasCaminho);
+routes.get('/entregue', cargaControler.pegarCargasEntregue);
+
 routes.get('/:id', cargaControler.pegarCargarPeloId);
 routes.get('/cod_rastreio/:cod_rastreio', cargaControler.pegarCargarPeloCodRastreio);
+
+routes.post('/', cargaControler.criarCarga);
 routes.put('/:id', cargaControler.atualizarCarga);
 routes.delete('/:id', cargaControler.deletarCarga);
 
