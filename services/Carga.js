@@ -1,16 +1,21 @@
 const { cargaModel, rotaModel } = require('../models');
 const cod_rastreio = require('../script/codigoRastreamentoAleatorio');
 const Rota = require('./Rota');
+const moment = require('moment-timezone');
+
 
 class Carga {
     async criarCarga(bodyOfRequest) {
         try {
             const new_cod_rastreio = await cod_rastreio();
+            const dataatual = moment().tz("America/Maceio").format();
+            
             const {
                 cidade_origem,
                 cidade_destino,
                 data_limite,
             } = bodyOfRequest;
+            
 
             const novaCarga = new cargaModel({
                 cod_rastreamento: new_cod_rastreio,
@@ -19,9 +24,15 @@ class Carga {
                 data_limite,
                 status: 'registrado',
                 Rota,
-                historico: []
+                historico: [
+                    {
+                        "nome_local": cidade_origem,
+                        "data_local": dataatual,
+                        "evento_local": "carga registrada",
+                    }
+                ]
             });
-
+            
             const carga = await novaCarga.save();
 
             return carga;
@@ -144,21 +155,34 @@ class Carga {
             } = bodyOfRequest;
 
             const dadosrota = await rotaModel.findById(rota);
-    
-            const carga = await cargaModel.findByIdAndUpdate(id, {
-                    cod_rastreamento,
-                    cidade_origem,
-                    cidade_destino,
-                    data_limite,
-                    status,
-                    rota: dadosrota,
-                    historico
-                },
-                {
-                    new: true
-                });
 
+            //pegando historico anterior e atualizando com nova informacao vindo do body
+            const historicoanterior = await cargaModel.findById(id)
+            const novohistorico = historicoanterior.historico
+            novohistorico.push(historico)
+
+            
+            //quando o evento registrado for 'reivindicar' o status da carga mudará para 'entregue'
+            var novostatus = status
+            if (historico.evento_local == "Reivindicar"){
+                novostatus = 'entregue'
+            }
+          
+            const carga = await cargaModel.findByIdAndUpdate(id, {
+                cod_rastreamento,
+                cidade_origem,
+                cidade_destino,
+                data_limite,
+                status: novostatus,
+                rota: dadosrota,
+                historico: novohistorico
+            },
+            {
+                new: true
+            });
+        
             return carga;
+
         }
         catch (error) {
             throw new Error("Error in atualizarCarga: " + error.message);
