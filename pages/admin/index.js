@@ -16,12 +16,28 @@ export async function getServerSideProps() {
 
 export default function Index({ cargas }) {
   const router = useRouter()
-  useEffect(() => {
+  /*useEffect(() => {
     const token = localStorage.getItem('userLogged')
     if (!token) {
       router.push('/admin/login')
     }
-  })
+  })*/
+  
+  // separando as cargas por status
+  const cargas_registradas = []
+  const cargas_roteadas = []
+  const cargas_entregues = []
+  cargas.forEach(element => {
+    if (element.status == 'registrado' && element.rotas == undefined){
+      cargas_registradas.push(element)
+    }
+    else if (element.status == 'entregue'){
+      cargas_entregues.push(element)
+    }
+    else{
+      cargas_roteadas.push(element)
+    }
+  });
 
   async function handlerSubmit(e) {
     e.preventDefault()
@@ -128,7 +144,7 @@ export default function Index({ cargas }) {
               <th>Ação</th>
             </tr>
             {
-              cargas.map((item, index) => (
+              cargas_registradas.map((item, index) => (
                   <tr key={index}>
                     <td>
                       <li>
@@ -171,7 +187,7 @@ export default function Index({ cargas }) {
               <th>Ação</th>
             </tr>
             {
-              cargas.map((item, index) => (
+              cargas_roteadas.map((item, index) => (
                 <tr key={index}>
                   <td>
                     <li>
@@ -218,7 +234,7 @@ export default function Index({ cargas }) {
               <th>Ação</th>
             </tr>
             {
-              cargas.map((item, index) => (
+              cargas_entregues.map((item, index) => (
                   <tr key={index}>
                     <td>
                       <li>
