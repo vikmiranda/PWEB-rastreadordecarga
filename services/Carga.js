@@ -154,20 +154,29 @@ class Carga {
                 historico
             } = bodyOfRequest;
 
-            const dadosrota = await rotaModel.findById(rota);
+            var novostatus = status
+            const dadoscarga = await cargaModel.findById(id);
 
             //pegando historico anterior e atualizando com nova informacao vindo do body
-            const historicoanterior = await cargaModel.findById(id)
-            const novohistorico = historicoanterior.historico
-            novohistorico.push(historico)
+            const novohistorico = dadoscarga.historico
+            if (historico != undefined) {
+                novohistorico.push(historico)
+            }
 
-            
+            //atribuindo rota e alterando status para 'em caminho'
+            var dadosrota = dadoscarga.rota
+            if (rota != undefined){
+                 dadosrota = await rotaModel.findById(rota);
+                 novostatus = 'em caminho'
+            }
+
+
             //quando o evento registrado for 'reivindicar' o status da carga mudará para 'entregue'
-            var novostatus = status
-            if (historico.evento_local == "Reivindicar"){
+            if (historico != undefined && historico.evento_local == "Reivindicar"){
                 novostatus = 'entregue'
             }
-          
+            
+
             const carga = await cargaModel.findByIdAndUpdate(id, {
                 cod_rastreamento,
                 cidade_origem,
