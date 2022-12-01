@@ -9,6 +9,8 @@ body {
     align-items: center;
     justify-content: center;
     font-family: sans-serif;
+    min-width: 300px;
+    max-width: 1000px;
 }
 
 .homePrincipal {
@@ -285,3 +287,4 @@ body {
     font-size: 24px;
     margin-bottom: 10px;
 }
+
