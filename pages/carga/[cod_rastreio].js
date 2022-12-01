@@ -5,21 +5,20 @@ import moment from 'moment'
 import api from '../../services/api'
 
 
+
+
 export default function Index () {
   const router = useRouter()
   const { cod_rastreio } = router.query
 
   const [carga, setCarga] = useState({})
-  const {historico} = carga
-  console.log(historico)
   useEffect(() => {
     const getCarga = async () => {
       const { data } = await api.get(`/cod_rastreio/${cod_rastreio}`);
-      setCarga(data)
+      setCarga(data);
     }
     getCarga()
   }, [cod_rastreio])
-
 
   if(!carga) {
     return <div>Carregando...</div>
@@ -54,50 +53,28 @@ export default function Index () {
                         <th>Local</th>
                     </tr>
 
-                {historico.map((item, index)=>{
+                    {/*{*/}
+                    {/*    carga.map((item, index)=>{*/}
+                    {/*        <tr key={index}>*/}
+                    {/*          <td>*/}
+                    {/*            <li>*/}
+                    {/*              <p>{item.data_local}</p>*/}
+                    {/*            </li>*/}
+                    {/*          </td>*/}
+                    {/*          <td>*/}
+                    {/*            <li>*/}
+                    {/*              <p>{item.evento_local}</p>*/}
+                    {/*            </li>*/}
+                    {/*          </td>*/}
+                    {/*          <td>*/}
+                    {/*            <li>*/}
+                    {/*              <p>{item.nome_local}</p>*/}
+                    {/*            </li>*/}
+                    {/*          </td>*/}
+                    {/*        </tr>*/}
+                    {/*    })*/}
+                    {/*}*/}
 
-                  <tr key={index}> 
-                      <td>
-                        <li>
-                          <p>{item.data_local}</p>
-                        </li>
-                      </td>
-                      <td>
-                        <li>
-                          <p>{item.evento_local}</p>
-                        </li>
-                      </td>
-                      <td>
-                        <li>
-                          <p>{item.nome_local}</p>
-                        </li>
-                      </td>
-
-                  </tr>
-
-                }) 
-
-
-                }
-
-
-
-
-
-
-                 {/* <tr>
-                        <td>
-                            <li>
-                                <p>{historico.evento_local}</p>
-                            </li>
-                        </td>
-                        <td>
-                            <li>
-                                <p></p>
-                            </li>
-                        </td>
-                    </tr> */}
-              
                 </table>
             </div>
         </div>

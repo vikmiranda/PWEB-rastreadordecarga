@@ -28,7 +28,7 @@ body {
     color: #f8f8f8;
     background: #f3efef no-repeat 0px 0px;
     background-size: cover;
-    width: 99vw;
+    width: 100vw;
     min-height: 100vh;
     display: flex;
     align-items: flex-start;

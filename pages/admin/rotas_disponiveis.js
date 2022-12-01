@@ -15,6 +15,7 @@ export async function getServerSideProps() {
 }
 
 export default function Index({ rotas }) {
+  console.log(rotas);
   const router = useRouter()
   // useEffect(() => {
   //   const token = localStorage.getItem('userLogged')
@@ -22,9 +23,6 @@ export default function Index({ rotas }) {
   //     router.push('/admin/login')
   //   }
   // })
-  
-  const cidades = rotas.nome
-    console.log(cidades)
 
   async function handlerSubmit(e) {
     e.preventDefault()
@@ -90,9 +88,14 @@ export default function Index({ rotas }) {
                       </li>
                       </td>
                     <td>
-                      <li>
-                        <p>{item.cidade.nome_cidade}</p>
-                      </li>
+                      {
+                        rotas[index].cidade.map((item, index) => (
+                            <li key={index}>
+                              <p>{item.nome_cidade}</p>
+                            </li>
+                        ))
+                      }
+
                     </td>
                     <td>
                       <li>
