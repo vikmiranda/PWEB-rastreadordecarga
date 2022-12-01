@@ -1,3 +1,25 @@
+.botaoMenu {
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    left: 201px;
+    background: red;
+}
+.menu-lateral {
+    display: flex;
+    flex-direction: column;
+    background-color: #15191C;
+    width: 75vw;
+    height: 100vh;
+    position: absolute;
+    left: -100vw;
+    transition: .25s;
+}
+.menu-lateral--ativo {
+    left: 0;
+    transition: .25s;
+}
+
 html {
     margin: 0;
     padding: 0;
@@ -10,7 +32,6 @@ body {
     justify-content: center;
     font-family: sans-serif;
     min-width: 300px;
-    max-width: 1000px;
 }
 
 .homePrincipal {
@@ -23,12 +44,19 @@ body {
     color: #f8f8f8;
     background: #f3efef no-repeat 0px 0px;
     background-size: cover;
-    width: 99vw;
+    width: 100vw;
     min-height: 100vh;
     display: flex;
     align-items: flex-start;
     justify-content: center;
 }
+@media (max-width: 1024px ) {
+    .home {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
 .home h1 {
     margin: 0;
     color: orange;
@@ -288,3 +316,47 @@ body {
     margin-bottom: 10px;
 }
 
+
+#listaRotas {
+    width: 90%;
+}
+#listaRotas h2 {
+    color: orange;
+    background: white;
+    padding: 10px;
+    border-radius: 20px;
+}
+#listaRotas label {
+    font-size: 1rem;
+    font-weight: 700;
+    color: red;
+}
+#listaRotas tr th {
+    color: black;
+    font-size: 1.5rem;
+}
+#listaRotas span {
+    color: white;
+    font-size: 1rem;
+}
+
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table li {
+    list-style: none;
+}
+
+table td, th {
+    border: 1px solid #9d9d9d;
+    text-align: left;
+    padding: 8px;
+}
+
+table tr:nth-child(even) {
+    background-color: #dddddd;
+}

@@ -71,31 +71,29 @@ export default function Index({ rotas }) {
       
       <div id="content">
 
-        <div id="dashboard" className="">
-          <h2>teste teste</h2>
+        <div id="listaRotas" className="">
+          <h2>Escolha a rota da carga</h2>
           <table>
             <tr>
               <th>Codigo</th>
-              <th>Origem</th>
-              <th>Destino</th>
-              <th>Data</th>
+              <th>Caminho</th>
               <th>Rotas</th>
             </tr>
             {
               rotas.map((item, index) => (
                   <tr key={index}>
-                    <th>{item.nome}</th>
                     <td>
                       <li>
-                       
+                        <p>
+                        {item.nome}
+                        </p>
                       </li>
-                    </td>
+                      </td>
                     <td>
                       <li>
-                        <p>{}</p>
+                        <p>{item.cidade.nome_cidade}</p>
                       </li>
                     </td>
-      
                     <td>
                       <li>
                         <button onClick={() => { router.push(`/admin/edit_carga/${item.cod_rastreamento}`) }}>Escolher Rota</button>

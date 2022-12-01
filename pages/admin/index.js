@@ -27,6 +27,19 @@ export default function Index({ cargas }) {
   const cargas_registradas = []
   const cargas_roteadas = []
   const cargas_entregues = []
+
+
+  async function menuButton(e) {
+    const botaoMenu = document.querySelector('.botaoMenu');
+    const menu = document.querySelector('.menu-lateral');
+
+    botaoMenu.addEventListener('click', () => {
+      menu.classList.toggle('menu-lateral--ativo')
+    })
+  }
+
+
+
   cargas.forEach(element => {
     if (element.status == 'registrado' && element.rotas == undefined){
       cargas_registradas.push(element)
@@ -78,6 +91,9 @@ export default function Index({ cargas }) {
     const dashboard = document.getElementById('dashboard');
     const atualizarcarga = document.getElementById('atualizarcarga'); 
     if (e.target.id === "registrarCarga") {
+      tabelaComRastreio.className = "openInfoMenu";
+      tabelaSemRastreio.className = "openInfoMenu";
+      tabelaEntregada.className = "openInfoMenu";
       dashboard.className = "openInfoMenu";
       atualizarcarga.className = "openInfoMenu";
       criarcarga.classList.remove("openInfoMenu");
@@ -85,12 +101,18 @@ export default function Index({ cargas }) {
       criarcarga.className = "openInfoMenu";
       atualizarcarga.className = "openInfoMenu";
       dashboard.classList.remove("openInfoMenu");
+      tabelaComRastreio.classList.remove("openInfoMenu");
+      tabelaSemRastreio.classList.remove("openInfoMenu");
+      tabelaEntregada.classList.remove("openInfoMenu");
     } else if (e.target.id === "atualizarCarga") {
+      tabelaComRastreio.className = "openInfoMenu";
+      tabelaSemRastreio.className = "openInfoMenu";
+      tabelaEntregada.className = "openInfoMenu";
       dashboard.className = "openInfoMenu";
       criarcarga.className = "openInfoMenu";
       atualizarcarga.classList.remove("openInfoMenu");
     }
-  };
+  }
 
   const handleSubimitLogout = async (e) => {
     e.preventDefault()
@@ -104,7 +126,10 @@ export default function Index({ cargas }) {
 
   return (
     <div className="home">
-      <div id="menu">
+      <button className="botaoMenu" aria-label="Menu" onClick={menuButton}>
+        <i></i>
+      </button>
+      <div id="menu" className="menu-lateral">
         <hr />
         <ul>
           <li><button id="registrarCarga" onClick={menuClick}>Registro de Carga</button></li>
@@ -156,7 +181,7 @@ export default function Index({ cargas }) {
 
         <div id="dashboard" className="openInfoMenu">
           <h2>Carga Não Roteada</h2>
-          <table>
+          <table id="tabelaSemRastreio" className="openInfoMenu">
             <tr>
               <th>Codigo</th>
               <th>Origem</th>
@@ -198,7 +223,7 @@ export default function Index({ cargas }) {
           </table>
 
           <h2>Carga Roteada</h2>
-          <table>
+          <table id="tabelaComRastreio" className="openInfoMenu">
             <tr>
               <th>Codigo</th>
               <th>Origem</th>
@@ -240,7 +265,7 @@ export default function Index({ cargas }) {
           </table>
 
           <h2>Carga Reivindicada</h2>
-          <table>
+          <table id="tabelaEntregada" className="openInfoMenu">
             <tr>
               <th>Codigo</th>
               <th>Origem</th>
@@ -278,7 +303,7 @@ export default function Index({ cargas }) {
 
         </div>
 
-        <div id="atualizarcarga">
+        <div id="atualizarcarga" className="openInfoMenu">
           <form id="formAtualizarCarga" className="criarCarga" onSubmit={AttCarga}>
             <label>Código de Rastreio:</label>
             <input name= "cod_rastreio"/>
@@ -312,7 +337,6 @@ export default function Index({ cargas }) {
         </div>
       </div>
 
-      <script type="text/javascript" src="../../assets/menu.js"></script>
     </div>
   )
 }
