@@ -16,12 +16,12 @@ export async function getServerSideProps() {
 
 export default function Index({ cargas }) {
   const router = useRouter()
-  useEffect(() => {
-    const token = localStorage.getItem('userLogged')
-    if (!token) {
-      router.push('/admin/login')
-    }
-  })
+  // useEffect(() => {
+  //   const token = localStorage.getItem('userLogged')
+  //   if (!token) {
+  //     router.push('/admin/login')
+  //   }
+  // })
   
   // separando as cargas por status
   const cargas_registradas = []
@@ -42,6 +42,7 @@ export default function Index({ cargas }) {
   async function handlerSubmit(e) {
     e.preventDefault()
     const { cidade_origem, cidade_destino, date } = e.target.elements
+    console.log(cidade_origem, cidade_destino, date )
     try {
       await api.post('', {
         cidade_origem: cidade_origem.value,
@@ -53,9 +54,29 @@ export default function Index({ cargas }) {
     }
   }
 
+
+  async function AttCarga(e) {
+    e.preventDefault()
+    const { cod_rastreio, cidade_atual, tipo_evento } = e.target.elements
+    
+    const id = cargas.find(element => element.cod_rastreamento == cod_rastreio.value)._id
+   
+    try {
+      await api.put(`/${id}`, {
+        historico: {nome_local: cidade_atual.value,
+                    data_local: moment(),
+                    evento_local: tipo_evento.value}
+        
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   async function menuClick(e) {
     const criarcarga = document.getElementById('criarcarga');
     const dashboard = document.getElementById('dashboard');
+    const atualizarcarga = document.getElementById('atualizarcarga'); 
     if (e.target.id === "registrarCarga") {
       dashboard.className = "openInfoMenu";
       atualizarcarga.className = "openInfoMenu";
@@ -258,9 +279,9 @@ export default function Index({ cargas }) {
         </div>
 
         <div id="atualizarcarga">
-          <form id="formAtualizarCarga" className="criarCarga" onSubmit={handlerSubmit}>
+          <form id="formAtualizarCarga" className="criarCarga" onSubmit={AttCarga}>
             <label>Código de Rastreio:</label>
-            <input/>
+            <input name= "cod_rastreio"/>
             <label>Cidade Atual:</label>
             <select name="cidade_atual">
               <option value="">Selecione cidade</option>
@@ -278,7 +299,7 @@ export default function Index({ cargas }) {
               <option value="Santos">Santos</option>
             </select>
             <label>Tipo de evento:</label>
-            <select>
+            <select name="tipo_evento">
               <option value="">Selecione evento</option>
               <option value="Custom">Custom</option>
               <option value="Descarregar">Descarregar</option>
