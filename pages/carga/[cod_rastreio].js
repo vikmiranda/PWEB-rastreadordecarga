@@ -1,16 +1,13 @@
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import moment from 'moment'
-
 import api from '../../services/api'
 
 
-
-
-export default function Index () {
+export default function Index ( ) {
   const router = useRouter()
   const { cod_rastreio } = router.query
-
+console.log(cod_rastreio)
   const [carga, setCarga] = useState({})
   useEffect(() => {
     const getCarga = async () => {
@@ -23,7 +20,8 @@ export default function Index () {
   if(!carga) {
     return <div>Carregando...</div>
   }
-
+  const historico = carga.historico
+  //console.log(carga.historico)
   return (
     <div>
         <div className="paginaRastreio">
@@ -52,28 +50,33 @@ export default function Index () {
                         <th>Tipo de Evento</th>
                         <th>Local</th>
                     </tr>
-
-                    {/*{*/}
-                    {/*    carga.map((item, index)=>{*/}
-                    {/*        <tr key={index}>*/}
-                    {/*          <td>*/}
-                    {/*            <li>*/}
-                    {/*              <p>{item.data_local}</p>*/}
-                    {/*            </li>*/}
-                    {/*          </td>*/}
-                    {/*          <td>*/}
-                    {/*            <li>*/}
-                    {/*              <p>{item.evento_local}</p>*/}
-                    {/*            </li>*/}
-                    {/*          </td>*/}
-                    {/*          <td>*/}
-                    {/*            <li>*/}
-                    {/*              <p>{item.nome_local}</p>*/}
-                    {/*            </li>*/}
-                    {/*          </td>*/}
-                    {/*        </tr>*/}
-                    {/*    })*/}
-                    {/*}*/}
+                    {
+              historico?.map((item, index) => (
+                  <tr key={index}>
+                    <td>
+                      <li>
+                        <p>
+                        {item.data_local}
+                        </p>
+                      </li>
+                      </td>
+                    <td>
+                    <li>
+                        <p>
+                        {item.evento_local}
+                        </p>
+                      </li>
+                    </td>
+                    <td>
+                      <li>
+                        <p>
+                        {item.nome_local}
+                        </p>
+                      </li>
+                    </td>
+                  </tr>
+              ))
+            }
 
                 </table>
             </div>
