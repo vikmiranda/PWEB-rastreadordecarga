@@ -141,7 +141,7 @@ export default function Index({ cargas }) {
               <th>Origem</th>
               <th>Destino</th>
               <th>Data</th>
-              <th>Ação</th>
+              <th>Rotas</th>
             </tr>
             {
               cargas_registradas.map((item, index) => (
@@ -168,7 +168,7 @@ export default function Index({ cargas }) {
                     </td>
                     <td>
                       <li>
-                        <button onClick={() => { router.push(`/admin/edit_carga/${item.cod_rastreamento}`) }}>Abrir</button>
+                        <button onClick={() => { router.push(`/admin/rotas_disponiveis`) }}>Escolher Rota</button>
                       </li>
                     </td>
                   </tr>
@@ -184,7 +184,6 @@ export default function Index({ cargas }) {
               <th>Destino</th>
               <th>Status</th>
               <th>Data</th>
-              <th>Ação</th>
             </tr>
             {
               cargas_roteadas.map((item, index) => (
@@ -214,11 +213,6 @@ export default function Index({ cargas }) {
                       <p>{moment(item.data_limite).format("D/MM/YYYY")}</p>
                     </li>
                   </td>
-                  <td>
-                    <li>
-                      <button onClick={() => { router.push(`/admin/edit_carga/${item.cod_rastreamento}`) }}>Abrir</button>
-                    </li>
-                  </td>
                 </tr>
               ))
             }
@@ -231,7 +225,6 @@ export default function Index({ cargas }) {
               <th>Origem</th>
               <th>Destino</th>
               <th>Data</th>
-              <th>Ação</th>
             </tr>
             {
               cargas_entregues.map((item, index) => (
@@ -256,11 +249,7 @@ export default function Index({ cargas }) {
                         <p>{moment(item.data_limite).format("D/MM/YYYY")}</p>
                       </li>
                     </td>
-                    <td>
-                      <li>
-                        <button onClick={() => { router.push(`/admin/edit_carga/${item.cod_rastreamento}`) }}>Abrir</button>
-                      </li>
-                    </td>
+
                   </tr>
               ))
             }
