@@ -13,7 +13,7 @@ routes.get('/:id', cargaControler.pegarCargarPeloId);
 routes.get('/cod_rastreio/:cod_rastreio', cargaControler.pegarCargarPeloCodRastreio);
 
 routes.post('/', cargaControler.criarCarga);
-routes.put('/:cod_rastreio', cargaControler.atualizarCarga);
+routes.put('/:id', cargaControler.atualizarCarga);
 routes.delete('/:id', cargaControler.deletarCarga);
 
 routes.post('/user', userControler.login);
