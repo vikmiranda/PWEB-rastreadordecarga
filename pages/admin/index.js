@@ -16,12 +16,12 @@ export async function getServerSideProps() {
 
 export default function Index({ cargas }) {
   const router = useRouter()
-  /*useEffect(() => {
+  useEffect(() => {
     const token = localStorage.getItem('userLogged')
     if (!token) {
       router.push('/admin/login')
     }
-  })*/
+  })
   
   // separando as cargas por status
   const cargas_registradas = []
