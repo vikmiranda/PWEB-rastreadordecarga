@@ -78,8 +78,7 @@ class Carga {
     async atualizarCarga(req, res) {
         try {
             const bodyRequest = req.body;
-            bodyRequest.id = req.params.id;
-
+            bodyRequest.cod_rastreamento = req.params.cod_rastreio;
             const carga = await cargaService.atualizarCarga(bodyRequest);
             return res.status(200).send(carga);
         }

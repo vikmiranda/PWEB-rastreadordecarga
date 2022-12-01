@@ -155,13 +155,23 @@ class Carga {
             } = bodyOfRequest;
 
             var novostatus = status
-            const dadoscarga = await cargaModel.findById(id);
+            var novoID = id
+            //pegar ID da carga pelo COD RASTREIO
+            const dadoscarga = await cargaModel.findOne({
+                cod_rastreamento: cod_rastreamento
+            });
+
+            if(id == undefined || id == null){
+                novoID = dadoscarga._id
+            }
+
 
             //pegando historico anterior e atualizando com nova informacao vindo do body
             const novohistorico = dadoscarga.historico
             if (historico != undefined) {
                 novohistorico.push(historico)
             }
+
 
             //atribuindo rota e alterando status para 'em caminho'
             var dadosrota = dadoscarga.rota
@@ -177,7 +187,7 @@ class Carga {
             }
             
 
-            const carga = await cargaModel.findByIdAndUpdate(id, {
+            const carga = await cargaModel.findByIdAndUpdate(novoID, {
                 cod_rastreamento,
                 cidade_origem,
                 cidade_destino,
