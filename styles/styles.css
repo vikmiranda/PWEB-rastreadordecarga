@@ -1,23 +1,7 @@
-.botaoMenu {
-    height: 60px;
-    width: 60px;
-    position: absolute;
-    left: 201px;
-    background: red;
-}
-.menu-lateral {
-    display: flex;
-    flex-direction: column;
-    background-color: #15191C;
-    width: 75vw;
-    height: 100vh;
-    position: absolute;
-    left: -100vw;
-    transition: .25s;
-}
-.menu-lateral--ativo {
-    left: 0;
-    transition: .25s;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+* {
+    font-family: "Poppins", sans-serif;
 }
 
 html {
@@ -44,7 +28,7 @@ body {
     color: #f8f8f8;
     background: #f3efef no-repeat 0px 0px;
     background-size: cover;
-    width: 100vw;
+    width: 99vw;
     min-height: 100vh;
     display: flex;
     align-items: flex-start;
@@ -314,6 +298,28 @@ body {
 .rastreioCarga span {
     font-size: 24px;
     margin-bottom: 10px;
+}
+
+.botaoMenu {
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    left: 201px;
+    background: red;
+}
+.menu-lateral {
+    display: flex;
+    flex-direction: column;
+    background-color: #15191C;
+    width: 75vw;
+    height: 100vh;
+    position: absolute;
+    left: -100vw;
+    transition: .25s;
+}
+.menu-lateral--ativo {
+    left: 0;
+    transition: .25s;
 }
 
 
