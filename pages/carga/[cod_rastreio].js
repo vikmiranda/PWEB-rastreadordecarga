@@ -10,7 +10,8 @@ export default function Index () {
   const { cod_rastreio } = router.query
 
   const [carga, setCarga] = useState({})
-
+  const {historico} = carga
+  console.log(historico)
   useEffect(() => {
     const getCarga = async () => {
       const { data } = await api.get(`/cod_rastreio/${cod_rastreio}`);
@@ -52,19 +53,51 @@ export default function Index () {
                         <th>Tipo de Evento</th>
                         <th>Local</th>
                     </tr>
-                    <tr>
 
+                {historico.map((item, index)=>{
+
+                  <tr key={index}> 
+                      <td>
+                        <li>
+                          <p>{item.data_local}</p>
+                        </li>
+                      </td>
+                      <td>
+                        <li>
+                          <p>{item.evento_local}</p>
+                        </li>
+                      </td>
+                      <td>
+                        <li>
+                          <p>{item.nome_local}</p>
+                        </li>
+                      </td>
+
+                  </tr>
+
+                }) 
+
+
+                }
+
+
+
+
+
+
+                 {/* <tr>
                         <td>
                             <li>
-                                <p>{moment(carga.data_limite).format("D/MM/YYYY")}</p>
+                                <p>{historico.evento_local}</p>
                             </li>
                         </td>
                         <td>
                             <li>
-                                <p>{carga.localizacao}</p>
+                                <p></p>
                             </li>
                         </td>
-                    </tr>
+                    </tr> */}
+              
                 </table>
             </div>
         </div>
