@@ -4,6 +4,8 @@ A aplicação é um sistema de fim-a-fim para manter o controle da cargas marít
 
 Aplicação Referência: https://github.com/engsoft-ifal/rastreadordecarga
 
+Repositório do Front-end: https://github.com/vikmiranda/rastreadordecarga-front
+
 ## Tecnologias:
 Back-end: 
 - Node.js + Express
@@ -12,9 +14,11 @@ Front-end:
 - HTML5
 - CSS
 - Javascript
+- Next.js
 
 Banco de Dados: 
-- ---
+- MongoDB Atlas
+
 
 
 ## Time:
