@@ -30,12 +30,17 @@ export default function Index({ cargas }) {
 
 
   async function menuButton(e) {
+    console.log("Cliquei no menu")
     const botaoMenu = document.querySelector('.botaoMenu');
     const menu = document.querySelector('.menu-lateral');
+    console.log(botaoMenu);
+    console.log(menu);
 
     botaoMenu.addEventListener('click', () => {
-      menu.classList.toggle('menu-lateral--ativo')
+      botaoMenu.classList.toggle('botaoMenu--ativo');
+      menu.classList.toggle('menu-lateral--ativo');
     })
+    console.log(menu);
   }
 
 
@@ -126,9 +131,7 @@ export default function Index({ cargas }) {
 
   return (
     <div className="home">
-      <button className="botaoMenu" aria-label="Menu" onClick={menuButton}>
-        <i></i>
-      </button>
+      <button className="botaoMenu" aria-label="Menu" onClick={menuButton}>Menu</button>
       <div id="menu" className="menu-lateral">
         <hr />
         <ul>
@@ -175,11 +178,12 @@ export default function Index({ cargas }) {
             </select>
             <label>Data de Chegada Limite:</label>
             <input type="date" name="date" placeholder="Data para entrega" />
-            <button type="submit">Cadastrar Carga</button>
+            <button id="cadastrarCarga" type="submit" onClick={menuClick}>Cadastrar Carga</button>
           </form>
         </div>
 
         <div id="dashboard" className="openInfoMenu">
+
           <h2>Carga Não Roteada</h2>
           <table id="tabelaSemRastreio" className="openInfoMenu">
             <tr>
@@ -332,7 +336,7 @@ export default function Index({ cargas }) {
               <option value="Receber">Receber</option>
               <option value="Carregar">Carregar</option>
             </select>
-            <button type="submit">Salvar</button>
+            <button id="cargaAtualizada" type="submit">Salvar</button>
           </form>
         </div>
       </div>

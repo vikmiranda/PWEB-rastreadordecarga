@@ -25,9 +25,9 @@ export default function Home() {
                     }}>
               <div>
                   <label htmlFor="cod_rastreio">Código de rastreio</label>
-                  <input type="text" placeholder="Código de rastreio" />
+                  <input id="cod_rastreio" type="text" placeholder="Código de rastreio" name="cod_rastreio"/>
                   <hr/>
-                  <button type="submit">Rastrear</button>
+                  <button id="btnRastrear" type="submit">Rastrear</button>
               </div>
           </form>
       </div>
